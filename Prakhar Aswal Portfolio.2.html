@@ -1,0 +1,632 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Prakhar Aswal Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700&display=swap">
+<style>
+/* Layout: sticky top bar, hero with a monogram panel and four evidence cards, then full-width sections that each open with a mono label and a large heading. */
+:root {
+  --bg: #EDF1EC;
+  --surface: #F8FAF7;
+  --ink: #16211B;
+  --muted: #4F5F55;
+  --line: #CFD9D0;
+  --accent: #1F5D46;
+  --accent-ink: #F4FAF6;
+  --accent-soft: #DCE8DF;
+  --mark: #E3A02F;
+  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1611;
+    --surface: #152019;
+    --ink: #E5EEE7;
+    --muted: #9BAFA2;
+    --line: #26372C;
+    --accent: #6FD0A0;
+    --accent-ink: #0A1A12;
+    --accent-soft: #1A2D22;
+    --mark: #F0B84F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1611;
+  --surface: #152019;
+  --ink: #E5EEE7;
+  --muted: #9BAFA2;
+  --line: #26372C;
+  --accent: #6FD0A0;
+  --accent-ink: #0A1A12;
+  --accent-soft: #1A2D22;
+  --mark: #F0B84F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  background: var(--bg); z-index: 10;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+ul, ol, dl, dd { margin: 0; padding: 0; list-style: none; }
+
+.inner {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.topbar .inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 64px; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
+.brand span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; }
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.btn { color: var(--accent-ink); }
+.menu-btn {
+  display: none; font-family: var(--font-mono); font-size: .8rem; cursor: pointer;
+  background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 4px; padding: 6px 12px;
+}
+
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 600; font-size: .94rem;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 10px 18px; border-radius: 6px; border: 1px solid var(--accent);
+  cursor: pointer; font-family: var(--font-body);
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); filter: none; }
+.btn.small { padding: 7px 14px; font-size: .88rem; }
+
+/* Sections */
+.section { padding-block: 76px; scroll-margin-top: 64px; }
+.section + .section { border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-mono); font-size: .74rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+.section h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 600; letter-spacing: -.02em; margin-top: 12px; max-width: 24ch; }
+.section-head { margin-bottom: 36px; }
+.intro { margin-top: 16px; max-width: 64ch; color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 72px 64px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 56px; align-items: center; }
+.status {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: .76rem; letter-spacing: .02em;
+  background: var(--accent-soft); color: var(--ink); padding: 6px 11px; border-radius: 4px;
+}
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mark); }
+.hero h1 { font-size: clamp(2.7rem, 6.4vw, 4.4rem); font-weight: 700; letter-spacing: -.035em; margin-top: 22px; }
+.hero .role { font-family: var(--font-mono); font-size: .88rem; color: var(--accent); margin-top: 16px; letter-spacing: .02em; }
+.hero .pitch { margin-top: 20px; font-size: 1.22rem; line-height: 1.55; max-width: 36ch; }
+.hero .sub { margin-top: 14px; color: var(--muted); max-width: 52ch; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.panel {
+  position: relative; min-height: 320px; border-radius: 10px;
+  background: var(--accent); color: var(--accent-ink);
+  box-shadow: 8px 8px 0 var(--mark);
+  display: flex; flex-direction: column; justify-content: space-between; padding: 24px;
+}
+.panel .initials { font-family: var(--font-display); font-weight: 700; font-size: clamp(4.5rem, 10vw, 7rem); line-height: 1; letter-spacing: -.04em; }
+.panel .cap { font-family: var(--font-mono); font-size: .78rem; line-height: 1.6; }
+.panel .cap b { font-weight: 500; opacity: .75; display: block; }
+.evidence { margin-top: 56px; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; min-width: 0; }
+.card .tick { display: block; width: 24px; height: 3px; background: var(--mark); margin-bottom: 16px; }
+.card h3 { font-size: 1.08rem; font-weight: 600; letter-spacing: -.01em; }
+.card p { margin-top: 8px; color: var(--muted); font-size: .94rem; }
+.card .meta { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); margin-top: 10px; }
+
+/* Skills */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.skill-grid .card { display: flex; flex-direction: column; gap: 14px; }
+.skill-grid h3 { font-size: 1rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--font-mono); font-size: .78rem; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 4px 10px; }
+.chip.on { background: var(--accent-soft); border-color: transparent; }
+
+/* Project */
+.project { display: grid; grid-template-columns: 300px minmax(0, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.project .viz { background: var(--accent); color: var(--accent-ink); padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.project .big { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 6vw, 4rem); line-height: 1; letter-spacing: -.04em; }
+.project .big-cap { font-family: var(--font-mono); font-size: .78rem; margin-top: 12px; opacity: .85; }
+.scale { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: .72rem; }
+.scale .bar { height: 6px; border-radius: 3px; background: var(--accent-ink); opacity: .35; position: relative; }
+.scale .ends { display: flex; justify-content: space-between; gap: 12px; }
+.project .body { padding: 32px; min-width: 0; }
+.project h3 { font-size: 1.45rem; font-weight: 600; letter-spacing: -.015em; }
+.project .tools { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); margin-top: 10px; }
+.pao { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
+.pao dt { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.pao dd { margin-top: 4px; max-width: 62ch; }
+.project .chips { margin-top: 26px; }
+.project + .project { margin-top: 24px; }
+.kpis { display: flex; flex-direction: column; gap: 26px; }
+.kpis .big { font-size: clamp(2rem, 4vw, 2.5rem); }
+.kpis .big-cap { margin-top: 6px; }
+.rank { margin-top: 28px; }
+.rank-title { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 8px; }
+.rank li { display: grid; grid-template-columns: minmax(0, 210px) minmax(0, 1fr) 74px; gap: 12px; align-items: center; padding-block: 6px; font-size: .9rem; }
+.rank .track { height: 10px; background: var(--accent-soft); border-radius: 3px; }
+.rank .fill { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.rank .v { font-family: var(--font-mono); font-size: .8rem; text-align: right; font-variant-numeric: tabular-nums; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.post .chips { margin-top: 18px; }
+.post-link { display: inline-block; margin-top: 16px; font-weight: 600; font-size: .92rem; }
+.post .post-link + .chips, .post .chips + .post-link { margin-left: 0; }
+
+/* Projects: one card per project, two columns on desktop */
+.projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.projects-grid .project { grid-template-columns: minmax(0, 1fr); scroll-margin-top: 80px; }
+.projects-grid .project + .project { margin-top: 0; }
+.projects-grid .viz { padding: 24px 28px; gap: 22px; }
+.projects-grid .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+.projects-grid .kpis .big { font-size: 1.6rem; }
+.projects-grid .body { padding: 28px; }
+.projects-grid .rank li { grid-template-columns: minmax(0, 170px) minmax(0, 1fr) 64px; }
+.projects-grid .post-link { margin-top: 18px; }
+
+/* Experience and education */
+.role-card { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 8px 32px; }
+.role-card .when { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); padding-top: 5px; }
+.role-card h3 { font-size: 1.3rem; font-weight: 600; }
+.role-card .org { color: var(--muted); margin-top: 2px; }
+.bullets { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; max-width: 66ch; }
+.bullets li { padding-left: 20px; position: relative; }
+.bullets li::before { content: ""; position: absolute; left: 0; top: .78em; width: 9px; height: 2px; background: var(--mark); }
+.edu .when { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); margin-bottom: 10px; }
+.edu .org { color: var(--muted); margin-top: 4px; font-size: .94rem; }
+
+/* Scroller */
+.scroller { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+.scroller .card { flex: 1 0 min(280px, 82%); scroll-snap-align: start; }
+
+/* Credentials */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tab {
+  font-family: var(--font-mono); font-size: .78rem; cursor: pointer;
+  background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 6px 12px;
+}
+.tab:hover { border-color: var(--accent); color: var(--accent); }
+.tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+/* Contact */
+.contact { background: var(--accent); color: var(--accent-ink); border-radius: 10px; padding: 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+.contact h2 { color: var(--accent-ink); margin-top: 0; }
+.contact .lede { margin-top: 14px; max-width: 36ch; opacity: .92; }
+.contact-list { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.contact-list .k { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; opacity: .75; display: block; }
+.contact-list .v { overflow-wrap: anywhere; }
+.contact-list a { color: var(--accent-ink); }
+.copy-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.copy-btn {
+  font-family: var(--font-mono); font-size: .74rem; cursor: pointer;
+  background: transparent; color: var(--accent-ink); border: 1px solid var(--accent-ink); border-radius: 4px; padding: 3px 10px;
+}
+.contact .btn { background: var(--accent-ink); color: var(--accent); border-color: var(--accent-ink); margin-top: 24px; }
+.footer { padding-block: 32px 48px; color: var(--muted); font-size: .88rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 860px) {
+  .menu-btn { display: inline-block; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 4px;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    padding: 12px max(16px, env(safe-area-inset-right, 0px)) 18px max(16px, env(safe-area-inset-left, 0px));
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 8px 0; font-size: 1rem; }
+  .nav-links a.btn { margin-top: 8px; padding: 10px 18px; }
+  .section { padding-block: 52px; }
+  .hero { padding-block: 40px 44px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .panel { min-height: 220px; margin-right: 8px; }
+  .evidence { margin-top: 40px; }
+  .project { grid-template-columns: minmax(0, 1fr); }
+  .project .viz { gap: 28px; padding: 24px; }
+  .project .body { padding: 24px; }
+  .role-card { grid-template-columns: minmax(0, 1fr); }
+  .role-card .when { padding-top: 0; }
+  .contact { grid-template-columns: minmax(0, 1fr); padding: 28px; }
+}
+@media (max-width: 980px) {
+  .projects-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .rank li, .projects-grid .rank li { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; }
+  .projects-grid .viz { padding: 20px; }
+  .projects-grid .body { padding: 20px; }
+  .rank .track { grid-column: 1 / -1; order: 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<header class="topbar">
+  <div class="inner">
+    <a class="brand" href="#top">Prakhar<span>.</span>Aswal</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Projects</a>
+      <a href="#experience">Internships</a>
+      <a href="#education">Education</a>
+      <a href="#credentials">Credentials</a>
+      <a class="btn small" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="inner">
+      <div class="hero-grid">
+        <div>
+          <p class="status">Open to job opportunities</p>
+          <h1>Prakhar Aswal</h1>
+          <p class="role">MBA student · Marketing &amp; Operations</p>
+          <p class="pitch">I use data and consumer insight to help organizations decide, grow and operate better.</p>
+          <p class="sub">MBA student at Manav Rachna University, building the skills to solve real-world business problems through academic projects, internships and extracurricular work.</p>
+          <div class="cta-row">
+            <a class="btn" href="#project">View projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="panel" aria-hidden="true">
+          <div class="initials">PA</div>
+          <div class="cap"><b>Based in</b>Faridabad, Haryana</div>
+        </div>
+      </div>
+
+      <div class="cards evidence" aria-label="Highlights">
+        <div class="card"><span class="tick"></span><h3>Power BI</h3><p>Built a retailer and dealer sales analysis at UltraTech Cement. Completed Power BI: Top Skills in 2025.</p></div>
+        <div class="card"><span class="tick"></span><h3>Python</h3><p>Data analysis with Python, alongside statistics and predictive analytics.</p></div>
+        <div class="card"><span class="tick"></span><h3>MySQL</h3><p>Completed MySQL for Data Analysis with LinkedIn Learning.</p><p class="meta">2025</p></div>
+        <div class="card"><span class="tick"></span><h3>Research</h3><p>Market research and client data work as Brand Manager Intern at Tick Mark Films.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2>Business strategy, consumer behavior and decisions backed by data.</h2>
+        <p class="intro">I am an MBA student with a strong interest in how organizations grow. Through academic projects, internships and extracurricular activities, I am developing the skills to solve real-world business problems, and I am looking for a role where I can put them to work.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="tick"></span><h3>Business strategy</h3><p>Strategic thinking and decision-making applied to real business questions.</p></div>
+        <div class="card"><span class="tick"></span><h3>Consumer behavior</h3><p>Market research and competitive analysis to understand what customers respond to.</p></div>
+        <div class="card"><span class="tick"></span><h3>Data-driven decisions</h3><p>Analysis, statistics and predictive modeling to support choices with evidence.</p></div>
+        <div class="card"><span class="tick"></span><h3>Organizational growth</h3><p>Looking for a team where I can contribute to marketing and operations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Skills and tools</p>
+        <h2>What I work with.</h2>
+      </div>
+      <div class="skill-grid">
+        <div class="card"><h3>Data and BI tools</h3><div class="chips"><span class="chip on">Power BI</span><span class="chip on">MySQL</span><span class="chip on">Python</span></div></div>
+        <div class="card"><h3>Analytics methods</h3><div class="chips"><span class="chip">Data analysis and interpretation</span><span class="chip">Statistics</span><span class="chip">Predictive analytics</span><span class="chip">Exploratory data analysis</span><span class="chip">Logistic regression</span></div></div>
+        <div class="card"><h3>Market and strategy</h3><div class="chips"><span class="chip">Market research</span><span class="chip">Competitive analysis</span><span class="chip">Strategic thinking</span><span class="chip">Decision-making</span></div></div>
+        <div class="card"><h3>Problem solving</h3><div class="chips"><span class="chip">Problem-solving</span><span class="chip">Critical thinking</span></div></div>
+        <div class="card"><h3>Leadership and teamwork</h3><div class="chips"><span class="chip">Team collaboration</span><span class="chip">Leadership</span></div></div>
+        <div class="card"><h3>Working style</h3><div class="chips"><span class="chip">Communication and presentation</span><span class="chip">Time management</span><span class="chip">Adaptability</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="project">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Projects</p>
+        <h2>Analysis that supports business decisions.</h2>
+      </div>
+      <!-- Projects: each project is one self-contained card. Add new cards inside this grid. -->
+      <div class="projects-grid">
+      <div class="project" id="project-ultratech">
+        <div class="viz">
+          <div class="kpis">
+            <div><div class="big">₹152.55K</div><p class="big-cap">total sales, 2025-26</p></div>
+            <div><div class="big">172</div><p class="big-cap">retailers</p></div>
+            <div><div class="big">19</div><p class="big-cap">dealers</p></div>
+            <div><div class="big">₹886.90</div><p class="big-cap">average sales per retailer</p></div>
+          </div>
+        </div>
+        <div class="body">
+          <h3>Retailer and dealer sales performance analysis</h3>
+          <p class="tools">UltraTech Cement · Summer internship · Power BI</p>
+          <dl class="pao">
+            <div><dt>Problem</dt><dd>Understand how a network of retailers and dealers performs: who sells the most, who sells the least, and how much dealers contribute.</dd></div>
+            <div><dt>Approach</dt><dd>Built the analysis in Power BI, with KPI cards, a ranking of retailers by sales and supporting tables, covering 172 retailers and 19 dealers.</dd></div>
+            <div><dt>Outcome</dt><dd>The top 5 retailers account for about 11.1% of total sales, led by Sardar Building Material Supplier. Sales are concentrated in a few retailers, which I flagged as a business risk if their sales decline.</dd></div>
+          </dl>
+          <div class="rank">
+            <p class="rank-title">Top 5 retailers by sales, 2025-26 (₹)</p>
+            <ul>
+              <li><span class="n">Sardar Building Material Supplier</span><span class="track"><span class="fill" style="width: 100%;"></span></span><span class="v">4,049.15</span></li>
+              <li><span class="n">Raj Enterprises</span><span class="track"><span class="fill" style="width: 87.7%;"></span></span><span class="v">3,550.75</span></li>
+              <li><span class="n">Satguru Stone Crushing Co.</span><span class="track"><span class="fill" style="width: 78.6%;"></span></span><span class="v">3,181.00</span></li>
+              <li><span class="n">Kela Devi Traders</span><span class="track"><span class="fill" style="width: 76%;"></span></span><span class="v">3,075.75</span></li>
+              <li><span class="n">Khatushyam Ji Enterprises</span><span class="track"><span class="fill" style="width: 75.5%;"></span></span><span class="v">3,057.15</span></li>
+            </ul>
+          </div>
+          <div class="chips">
+            <span class="chip">Power BI</span>
+            <span class="chip">Sales analysis</span>
+            <span class="chip">KPI reporting</span>
+            <span class="chip">Data visualization</span>
+          </div>
+          <a class="post-link" href="#internship-ultratech">See the UltraTech internship</a>
+        </div>
+      </div>
+
+      <div class="project" id="project-lead-scoring">
+        <div class="viz">
+          <div>
+            <div class="big">0–100</div>
+            <p class="big-cap">lead score for every lead</p>
+          </div>
+          <div class="scale">
+            <div class="bar"></div>
+            <div class="ends"><span>0 · lower priority</span><span>100 · higher potential</span></div>
+          </div>
+        </div>
+        <div class="body">
+          <h3>Lead scoring with logistic regression</h3>
+          <p class="tools">EDA · Data cleaning · Logistic regression · Predictive modeling</p>
+          <dl class="pao">
+            <div><dt>Problem</dt><dd>A sales team has limited time and needs to know which leads are worth pursuing first.</dd></div>
+            <div><dt>Approach</dt><dd>Ran exploratory data analysis on a dataset of 9,000+ records, cleaned it and handled null values in categorical fields to read the patterns, then built a logistic regression model.</dd></div>
+            <div><dt>Outcome</dt><dd>Every lead receives a score from 0 to 100, which points the sales team to high-potential conversion targets and makes its work more efficient.</dd></div>
+          </dl>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Internships</p>
+        <h2>Where I have interned.</h2>
+      </div>
+      <!-- Internships: each internship is one separate post. Add new posts inside this stack. -->
+      <div class="stack">
+      <div class="card post" id="internship-ultratech" style="scroll-margin-top: 80px;">
+        <div class="role-card">
+          <div class="when">Summer internship</div>
+          <div>
+            <h3>Summer Intern, Sales and Marketing</h3>
+            <p class="org">UltraTech Cement</p>
+            <ul class="bullets">
+              <li>Worked in the Sales and Marketing department on a retailer and dealer sales performance analysis, developed in Power BI.</li>
+              <li>Analyzed 2025-26 sales across 172 retailers and 19 dealers to identify top and bottom performers and evaluate dealer contribution.</li>
+              <li>Found that the top 5 retailers account for about 11.1% of total sales and flagged the risk of depending on a few retailers.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip on">Sales and Marketing</span>
+              <span class="chip">Power BI</span>
+              <span class="chip">Sales analysis</span>
+              <span class="chip">Dealer network</span>
+            </div>
+            <a class="post-link" href="#project-ultratech">See the project</a>
+          </div>
+        </div>
+      </div>
+      <div class="card post" id="internship-tickmark" style="scroll-margin-top: 80px;">
+        <div class="role-card">
+          <div class="when">20 May to 20 July</div>
+          <div>
+            <h3>Brand Manager Intern</h3>
+            <p class="org">Tick Mark Films, Delhi</p>
+            <ul class="bullets">
+              <li>Conducted market research and collected client data to identify potential business opportunities.</li>
+              <li>Explored market trends and contributed to short-term business development goals during the internship.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip on">Brand management</span>
+              <span class="chip">Market research</span>
+              <span class="chip">Client data</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Education</p>
+        <h2>Where I have studied.</h2>
+      </div>
+      <div class="cards">
+        <div class="card edu"><div class="when">Current</div><h3>MBA</h3><p class="org">Manav Rachna University</p><p class="meta">CGPA 7.7 / 10</p></div>
+        <div class="card edu"><div class="when">Aug 2022 to Aug 2025</div><h3>BBA</h3><p class="org">Rajasthan University</p><p class="meta">CGPA 7 / 10</p></div>
+        <div class="card edu"><div class="when">2021 to 2022</div><h3>Class XII</h3><p class="org">DC Model Sr. Sec. School</p><p class="meta">68%</p></div>
+        <div class="card edu"><div class="when">2019 to 2020</div><h3>Class X</h3><p class="org">DC Model Sr. Sec. School</p><p class="meta">81%</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="achievements">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Achievements</p>
+        <h2>Recognition and competitions.</h2>
+      </div>
+      <div class="scroller">
+        <div class="card"><span class="tick"></span><h3>Academic Excellence Award</h3><p>Rajasthan University</p></div>
+        <div class="card"><span class="tick"></span><h3>CaseCraft participant</h3><p>Asian Business School</p></div>
+        <div class="card"><span class="tick"></span><h3>CaseCraft participant</h3><p>Manav Rachna</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="credentials">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Trainings and certifications</p>
+        <h2>Credentials.</h2>
+      </div>
+      <div class="tabs" role="group" aria-label="Filter credentials">
+        <button class="tab" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="tab" type="button" data-filter="bi" aria-pressed="false">Data and BI</button>
+        <button class="tab" type="button" data-filter="tech" aria-pressed="false">Technology</button>
+        <button class="tab" type="button" data-filter="fin" aria-pressed="false">Finance</button>
+      </div>
+      <div class="cards">
+        <div class="card cert" data-cat="bi"><h3>Power BI: Top Skills</h3><p>LinkedIn Learning</p><p class="meta">2025</p></div>
+        <div class="card cert" data-cat="bi"><h3>MySQL for Data Analysis</h3><p>LinkedIn Learning</p><p class="meta">2025</p></div>
+        <div class="card cert" data-cat="tech"><h3>AI Tools and Technical Workshop</h3><p>UNICEF / YuWaah</p><p class="meta">2025</p></div>
+        <div class="card cert" data-cat="tech"><h3>SCADA (MC Works64)</h3><p>CVR College of Engineering, Hyderabad</p></div>
+        <div class="card cert" data-cat="fin"><h3>NISM Certification</h3><p>Kotak Securities</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="community">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">Community and interests</p>
+        <h2>Outside the classroom.</h2>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="tick"></span><h3>Volunteer Lead</h3><p>Held donation drives and camps.</p></div>
+        <div class="card"><span class="tick"></span><h3>Languages</h3><div class="chips" style="margin-top: 12px;"><span class="chip">English, fluent</span><span class="chip">Hindi, fluent</span></div></div>
+        <div class="card"><span class="tick"></span><h3>Interests</h3><div class="chips" style="margin-top: 12px;"><span class="chip">Music</span><span class="chip">Cooking</span><span class="chip">Football</span><span class="chip">Gym</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <div>
+          <p class="eyebrow" style="color: var(--accent-ink); opacity: .75;">Contact</p>
+          <h2 style="margin-top: 12px;">Let's talk about your next hire.</h2>
+          <p class="lede">I am open to marketing, operations and analytics roles.</p>
+          <a class="btn" href="mailto:prakharaswal882@gmail.com">Write to me</a>
+        </div>
+        <div class="contact-list">
+          <div>
+            <span class="k">Email</span>
+            <div class="copy-row">
+              <span class="v" id="email-text">prakharaswal882@gmail.com</span>
+              <button class="copy-btn" id="copy-email" type="button">Copy</button>
+            </div>
+          </div>
+          <div>
+            <span class="k">LinkedIn</span>
+            <a class="v" href="https://www.linkedin.com/in/prakhar-aswal-1810aa328" target="_blank" rel="noopener">prakhar-aswal-1810aa328</a>
+          </div>
+          <div>
+            <span class="k">Location</span>
+            <span class="v">Faridabad, Haryana, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner footer">
+    <span>Prakhar Aswal · MBA, Manav Rachna University</span>
+    <span>Portfolio 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var menuBtn = document.getElementById('menu-btn');
+  var links = document.getElementById('nav-links');
+  if (menuBtn && links) {
+    menuBtn.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.textContent = open ? 'Close' : 'Menu';
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = 'Menu';
+      }
+    });
+  }
+
+  var tabs = document.querySelectorAll('.tab');
+  var certs = document.querySelectorAll('.cert');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var f = tab.getAttribute('data-filter');
+      tabs.forEach(function (t) { t.setAttribute('aria-pressed', t === tab ? 'true' : 'false'); });
+      certs.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+    });
+  });
+
+  var btn = document.getElementById('copy-email');
+  var txt = document.getElementById('email-text');
+  if (btn && txt) {
+    var flash = function (label) {
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+    };
+    var selectText = function () {
+      try {
+        var r = document.createRange();
+        r.selectNodeContents(txt);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+        flash('Selected');
+      } catch (e) {}
+    };
+    btn.addEventListener('click', function () {
+      var v = txt.textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(v).then(function () { flash('Copied'); }, selectText);
+      } else {
+        selectText();
+      }
+    });
+  }
+})();
+</script>
+
+</body></html>
